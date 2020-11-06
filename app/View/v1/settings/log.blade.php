@@ -2,20 +2,21 @@
 
 @section('content')
 <div class='container'>
-<section class="row">
 <h1>System log <small class='pull-right' style='margin-top:1.5%;'>Files: {{$all_files->count()}}</small></h1>
-<br><br>
+
+<section class="row">
+
 
 <div class='col-md-4'>
- <div class="list-group">
- 	@foreach($all_files as $file)
- 		  <a href="{{config('horizontcms.backend_prefix')}}/settings/log/{{basename($file)}}" class="list-group-item @if(basename($file)==basename($current_file)) active @endif ">{{basename($file)}}</a>
- 
-    @if($entry_number==$max_files) 
-        @break
-    @endif 
- 	@endforeach
-</div> 
+    <div class="list-group">
+      @foreach($all_files as $file)
+          <a href="{{config('horizontcms.backend_prefix')}}/settings/log/{{basename($file)}}" class="list-group-item @if(basename($file)==basename($current_file))  bg-primary border-0 text-white @endif">{{basename($file)}}</a>
+    
+        @if($entry_number==$max_files) 
+            @break
+        @endif 
+      @endforeach
+    </div> 
 </div>
 <div class='col-md-8'>
 
@@ -38,7 +39,7 @@
     <div class="row">
       <h4 class="col-md-4" >Entries: {{$all_file_entries}}</h4>
       @if(isset($current_file))
-      <a href="{{'storage/framework/logs/'.$current_file}}" class="btn btn-primary pull-right"><i class="fa fa-download" aria-hidden="true"></i> Download file</a>
+      <a href="{{'storage/framework/logs/'.$current_file}}" class="btn btn-primary ml-auto"><i class="fa fa-download" aria-hidden="true"></i> Download file</a>
       @endif
     </div>
     {{'storage/framework/logs/'.$current_file}}
@@ -52,7 +53,12 @@
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$entry_number}}" @if($loop->first) aria-expanded="true" @else aria-expanded="false" @endif aria-controls="collapse{{$entry_number}}">
              <div class='row'>
-              <div class='col-md-8'>#{{$entry_number}}  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ucfirst($entry->level)}} - {{$entry->id}}</div> <div class='col-md-4 text-right'>{{$entry->date->format(\Settings::get('date_format',\Config::get('horizontcms.default_date_format'),true))}} </div>
+                <div class='col-md-8'>
+                    <h6>#{{$entry_number}}  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{ucfirst($entry->level)}} - {{$entry->id}} </h6>
+                  </div> 
+                  <div class='col-md-4 text-right'>
+                    <h6>{{$entry->date->format(\Settings::get('date_format',\Config::get('horizontcms.default_date_format'),true))}} </h6>
+                  </div>
         	 </div>
         </a>
       </h4>

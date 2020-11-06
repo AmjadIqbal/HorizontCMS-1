@@ -32,7 +32,7 @@
 
 <tr><td></td>
 <td><button type='submit' class='btn btn-primary'>
-		<span class='glyphicon glyphicon-floppy-save' aria-hidden='true'></span> Save settings</button> </td></tr>
+		<span class='fa fa-floppy-o' aria-hidden='true'></span> Save settings</button> </td></tr>
 
 
 

@@ -9,21 +9,20 @@
 
 <div class="container col-md-12">
 
+<div class="row">
 @foreach($panels as $each)
 
-<a href='<?= $each['link'] ?>'>
-	<div class='well col-md-3'>
 
-			<center>
-				<i class="{{ $each['icon'] }}" style='font-size:60px;'></i>
-				<h4>{{ $each['name'] }}</h4>
-			</center>
-
+	<div class='well col-md-3 text-center mb-5 bg-dark py-4'>
+		<a href='<?= $each['link'] ?>'>
+			<i class="{{ $each['icon'] }} text-white" style='font-size:60px;'></i>
+			<h4 class="text-white">{{ $each['name'] }}</h4>
+		</a>
 	</div>	
-</a>
+
 
 @endforeach
-
+</div>
 </div>
 
 </div>

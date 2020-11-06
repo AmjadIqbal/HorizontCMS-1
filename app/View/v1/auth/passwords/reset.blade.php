@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 offset-md-2">
             <div class="panel panel-default" style="background:transparent;">
                 <div class="panel-heading" style="background-color:#1f1f1f;">Reset Password</div>
 

@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container my-3'>
 
 	@if(\App\HorizontCMS::isInstalled() && \Auth::check() && \Settings::get('admin_broadcast') != '')
 	<div class="alert alert-info alert-dismissible" role="alert">

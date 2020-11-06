@@ -87,7 +87,7 @@
 </td>
 </tr>
 
-<tr><td></td><td></br><button type='submit' class='btn btn-primary'><span class='glyphicon glyphicon-floppy-save' aria-hidden='true'></span> Save settings</button> </td></tr>
+<tr><td></td><td></br><button type='submit' class='btn btn-primary'><span class='fa fa-floppy-o' aria-hidden='true'></span> Save settings</button> </td></tr>
 
 </tbody></table>
 </form>
@@ -99,8 +99,9 @@
     <div class='modal-content'>
 
         <div class='modal-header'>
-        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-        <h3 class='modal-title'><center>Select Logo</center></h3>
+          <h3 class='modal-title'><center>Select Logo</center></h3>
+
+          <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
          </div>
         <div class='modal-body'>
          

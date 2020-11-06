@@ -4,7 +4,7 @@
 		  <div class='modal-dialog modal-md'>
 		    <div class='modal-content'>
 		      <div class='modal-header '>
-		      <h2 class='text-primary'><i class="fa fa-lock"></i> Screen is locked</h2>
+		      <h2 class='text-primary color-primary'><i class="fa fa-lock"></i> Screen is locked</h2>
 		      </div>
 		      <div class='modal-body'>
 

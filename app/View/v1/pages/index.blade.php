@@ -22,17 +22,18 @@ tr #hidden-home a:hover{
 
 <h2>{{trans('page.pages')}} <small class='pull-right' style='margin-top:1.5%;'>{{trans('page.all')}}: {{$number_of_pages}} | {{trans('page.visible')}}: {{$visible_pages}} | {{trans('page.invisible')}}: {{$number_of_pages - $visible_pages}}</small></h2>
 
-<br>
-<div class='col-md-6'>
-  <a href="{{admin_link('page-create')}}" class='btn btn-info' style='margin-bottom:20px;'>{{trans('page.create_page_button')}}</a>
-</div>
-<div class='col-md-6' style='text-align:right;'>
-  <a class='btn btn-default' id='orderer' onclick='$(this).toggle(dragndroporder());' data-csrf="{{csrf_token()}}" style='margin-bottom:20px;'><i class='fa fa-arrows-v' style='font-size:15px;'  aria-hidden='true'></i> {{trans('page.order')}}</a>
+<div class="row py-3">
+    <div class='col-md-6'>
+      <a href="{{admin_link('page-create')}}" class='btn btn-info my-auto' style='margin-bottom:20px;'>{{trans('page.create_page_button')}}</a>
+    </div>
+    <div class='col-md-6' style='text-align:right;'>
+      <a class='btn btn-default my-auto' id='orderer' onclick='$(this).toggle(dragndroporder());' data-csrf="{{csrf_token()}}" style='margin-bottom:20px;'><i class='fa fa-arrows-v' style='font-size:15px;'  aria-hidden='true'></i> {{trans('page.order')}}</a>
+    </div>
 </div>
 
 <table id="page-list-table" class='table table-hover table-condensed'>
     <thead>
-      <tr>
+      <tr class="bg-dark text-white">
       	<th>{{trans('page.th_id')}}</th>
         <th>{{trans('page.th_image')}}</th>
       	<th>{{trans('page.th_name')}}</th>
@@ -100,7 +101,7 @@ echo "<br><span class='label label-default label-sm'>".strtoupper($each->languag
     echo "</td>";
 
         
-    echo "<td style='padding-left:45px;'><span class='badge'>" .$each->subpages->count()."</span></td>";
+    echo "<td style='padding-left:45px;'><span class='badge badge-dark'>" .$each->subpages->count()."</span></td>";
 
 
       echo   "<td><center>";
@@ -118,9 +119,9 @@ echo '
 <div class="modal mo-'.$each->id.'" id=" mo-'.$each->id.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header modal-header-warning">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-header modal-header-warning bg-warning text-white">
         <h4 class="modal-title" id="myModalLabel">'.trans("page.change_homepage").'</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         '.trans("page.are_you_sure_to_set",["page_name" => $each->name]).'

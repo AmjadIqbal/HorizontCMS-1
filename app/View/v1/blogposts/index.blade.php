@@ -10,60 +10,57 @@
 
 <table class='table table-hover'>
     <thead>
-      <tr>
-      	<th>{{trans('blogpost.th_id')}}</th>
-        <th>{{trans('blogpost.th_image')}}</th>
-      	<th>{{trans('blogpost.th_title')}}</th>
-      	<th>{{trans('blogpost.th_comments')}}</th>
-        <th class='hidden-xs'>{{trans('blogpost.th_date')}}</th>
-        <th>{{trans('blogpost.th_author')}}</th>
-        <th class='hidden-xs'>{{trans('blogpost.th_category')}}</th>
-        <th><center>{{trans('actions.th_action')}}</center></th>
+      <tr class="d-flex bg-dark text-white">
+      	<th class="col-1">{{trans('blogpost.th_id')}}</th>
+        <th class="col-1">{{trans('blogpost.th_image')}}</th>
+      	<th class="col-3">{{trans('blogpost.th_title')}}</th>
+      	<th class="col-1">{{trans('blogpost.th_comments')}}</th>
+        <th class='hidden-xs col-2 text-center'>{{trans('blogpost.th_date')}}</th>
+        <th  class="col-1">{{trans('blogpost.th_author')}}</th>
+        <th class='hidden-xs col-1'>{{trans('blogpost.th_category')}}</th>
+        <th  class="col-2"><center>{{trans('actions.th_action')}}</center></th>
       </tr>
-    </thead><tbody>
+    </thead>
+    <tbody>
 
 
 
 <?php foreach($all_blogposts as $blogpost): ?>
 
-<tr>
-  <td><?= $blogpost->id ?></td>
+<tr class="d-flex">
+  <td class="col-1"><?= $blogpost->id ?></td>
 
 
-  <td><img src='{{$blogpost->getThumb()}}'  class='img img-rounded' style='object-fit:cover;' width=70 height=50 /> </td>
+  <td class="col-1"><img src='{{$blogpost->getThumb()}}'  class='img img-rounded' style='object-fit:cover;' width=70 height=50 /> </td>
 
 
-  <td  class='col-md-4 col-xs-3'><a href="{{admin_link('blogpost-view',$blogpost->id)}}" >{{ $blogpost->title }}</a><br>
-  @if($blogpost->isDraft())
-  <span class="label label-info">{{trans('actions.draft')}}</span>
-  @endif
+  <td  class='col-3 col-xs-3'><a href="{{admin_link('blogpost-view',$blogpost->id)}}" >{{ $blogpost->title }}</a><br>
+      @if($blogpost->isDraft())
+      <span class="badge badge-info">{{trans('actions.draft')}}</span>
+      @endif
   </td>
-  		 <td><center><span class="badge" style='font-size:14px'>{{ count($blogpost->comments) }}</span></center></td>
+  <td class="col-1  text-center"><span class="badge badge-dark" style='font-size:14px'>{{ count($blogpost->comments) }}</span></td>
   
 
-  <td class='hidden-xs'><?= $blogpost->created_at->format('Y-m-d'); ?></br><font size='2'><i>at</i> <?= $blogpost->created_at->format('H:i:s'); ?></font></td>
+  <td class='hidden-xs col-2  text-center'><?= $blogpost->created_at->format('Y-m-d'); ?></br><font size='2'><i>at</i> <?= $blogpost->created_at->format('H:i:s'); ?></font></td>
   
   @if($blogpost->author)
-  <td><a href="{{admin_link('user-view',$blogpost->author->id)}}" >{{ $blogpost->author->username }}</a></td>
+  <td class="col-1"><a href="{{admin_link('user-view',$blogpost->author->id)}}" >{{ $blogpost->author->username }}</a></td>
   @else
   <td>{{ trans('blogpost.removed_user') }}</td>
   @endif
   @if($blogpost->category)
-  <td class='hidden-xs'><span class="label label-success" style='font-size:14px; display:block'>{{ $blogpost->category->name }}</span></td>
+  <td class='hidden-xs col-1'><span class="badge badge-success" style='font-size:14px; display:block'>{{ $blogpost->category->name }}</span></td>
   @else
-  <td class='hidden-xs'>none</td>
+  <td class='hidden-xs col-1'>none</td>
   @endif
 
 
-  <td>
-    <center>
-
+  <td class="col-2 text-center">
        <div class="btn-group" role="group">
            <a href="{{admin_link('blogpost-edit',$blogpost->id)}}" type="button" class="btn btn-warning btn-sm" style='min-width:70px;'>{{trans('actions.edit')}}</a>
            <a type="button" data-toggle='modal' data-target=.delete_<?= $blogpost->id ?> class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
        </div>
-
-        </center>
   </td>
 </tr>
 

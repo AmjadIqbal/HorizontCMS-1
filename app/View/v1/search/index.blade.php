@@ -3,27 +3,29 @@
 @section('content')
 <div class='container main-container'>
 
+<div class="row py-4">
+
+
 <h2 class='col-md-8'>{!!trans('search.found_matches',['quantity' => ($search_engine->getTotalCount() ), 'search_word' => $search_for ])!!}</h2> 
 
-<div class='col-md-4 col-sm-12'>
-<form class='form-inline' action='admin/search' method='POST'>
+<div class='col-md-4 col-sm-12 my-auto'>
+  <form class='form-inline' action='admin/search' method='POST'>
     {{ csrf_field() }}
-<br>
-          <div class='form-group'>
-            <div class='input-group'>
-            <input type='text' pattern=".{3,}" title="Minimum 3 characters" class='form-control' name='search' id='exampleInputAmount' placeholder="{{ trans('dashboard.search_bar') }}" required>
-               <div class='input-group-addon'>
-                <button type='submit' class='btn btn-link btn-sm'  style='margin:0px;padding:0px;'>
-               <span class='glyphicon glyphicon-search' aria-hidden='true' size=1></span></div>
-               </button>
+      <div class='form-group'>
+        <div class='input-group'>
+        <input type='text' pattern=".{3,}" title="Minimum 3 characters" class='form-control' name='search' id='exampleInputAmount' placeholder="{{ trans('dashboard.search_bar') }}" required>
+          <div class="input-group-prepend">
+              <button type='submit' class='btn btn-link btn-sm border-0' style='padding:0px;'>
+                  <span class='fa fa-search text-white' aria-hidden='true' ></span>
+                </button>
             </div>
-          </div>
-         <!-- <button type='submit' class='btn btn-primary'>Search</button>-->
-        </form>
+        </div>
+      </div>
+      <!-- <button type='submit' class='btn btn-primary'>Search</button>-->
+  </form>
 
-<br/><br/><br/>
 </div>
-
+</div>
 
 @if(\Auth::user()->hasPermission('blogpost'))
 <h3 style='clear:both;'>{{trans('blogpost.blogposts')}} ({{$search_engine->getResultsFor(\App\Model\Blogpost::class)->count()}})</h3>

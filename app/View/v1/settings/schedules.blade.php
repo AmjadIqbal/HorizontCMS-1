@@ -9,7 +9,7 @@
 
 <table class='table table-hover'>
     <thead>
-      <tr>
+      <tr class="bg-dark text-white">
       	<th>{{trans('schedules.th_id')}}</th>
       	<th>{{trans('schedules.th_name')}}</th>
         <th>{{trans('schedules.th_command')}}</th>
@@ -61,9 +61,9 @@
 <div class='modal new_task' id='create_file' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
   <div class='modal-dialog'>
     <div class='modal-content'>
-      <div class='modal-header modal-header-primary'>
-        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-        <h4 class='modal-title'>Schedule task</h4>
+      <div class='modal-header modal-header-primary bg-primary'>
+        <h4 class='modal-title text-white'>Schedule task</h4>
+        <button type='button' class='close text-white' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
       </div>
 
       <form action="{{config('horizontcms.backend_prefix')}}/schedule/create" method='POST'>

@@ -10,7 +10,7 @@
 
 <div class='col-md-4'>
 <br>
-	  <a class="list-group-item active">
+	  <a class="list-group-item active bg-primary border-0">
 	    <h4 class="list-group-item-heading">Current version: v{{$current_version->version}}</h4>
 	    <p class="list-group-item-text">Installed: {{$current_version->created_at->format(\Settings::get('date_format',\Config::get('horizontcms.default_date_format'),true))}}</p>
 	  </a>
@@ -43,13 +43,13 @@
 	  @foreach($upgrade_list as $upgrade)
 
 	   @if($loop->first)
-		  <a class="list-group-item active">
+		  <a class="list-group-item active bg-primary border-0">
 		    <h4 class="list-group-item-heading">Current Version: v{{$upgrade->version}}</small></h4>
 		    <p class="list-group-item-text">Installed: {{$upgrade->created_at->format(\Settings::get('date_format',\Config::get('horizontcms.default_date_format'),true))}}</p>
 		  </a>
 		  <?php continue; ?>
 	   @elseif($loop->last)
-		   <a class="list-group-item list-group-item-success" style='border-radius:0px;cursor:pointer;'>
+		   <a class="list-group-item bg-success" style='border-radius:0px;cursor:pointer;'>
 		    <h4 class="list-group-item-heading">System Core: {{$upgrade->version}}</h4>
 		    <p class="list-group-item-text">Installed: {{$upgrade->created_at->format(\Settings::get('date_format',\Config::get('horizontcms.default_date_format'),true))}}</p>
 		  </a>

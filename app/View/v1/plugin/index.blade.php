@@ -5,15 +5,13 @@
 
 
 <section class="row">
-<h1 class="col-sm-12 col-md-6">Plugin manager</h1> 
+  <h1 class="col-sm-12 col-md-6">Plugin manager</h1> 
 
   <div class='col-sm-12 col-md-6 text-right'><br>
-  <a href="{{config('horizontcms.backend_prefix')}}/plugin/onlinestore" class='btn btn-info'><i class="fa fa-cloud-download" aria-hidden="true"></i> Download apps</a>
-  <a id='upl' class='btn btn-primary' data-toggle='modal' data-target='.upload_plugin' @if(!$zip_enabled) disabled @endif ><i class='fa fa-upload'></i>&nbspUpload new plugin</a>
+    <a href="{{config('horizontcms.backend_prefix')}}/plugin/onlinestore" class='btn btn-info'><i class="fa fa-cloud-download" aria-hidden="true"></i> Download apps</a>
+    <a id='upl' class='btn btn-primary' data-toggle='modal' data-target='.upload_plugin' @if(!$zip_enabled) disabled @endif ><i class='fa fa-upload'></i>&nbspUpload new plugin</a>
   </div>
 </section>
-
-</br><br>
 
 
 
@@ -23,8 +21,8 @@
 
 foreach($all_plugin as $current_plugin){
 
-  echo  "<div class='list-group-item' style='height:120px;padding-top:17px;border-bottom:3px solid black;'>";
-  	
+  echo  "<div class='list-group-item bg-dark' style='height:120px;padding-top:17px;border-bottom:3px solid black;'>";
+  	echo "<div class='row'>";
       echo "<div class='col-md-10 col-sm-8 col-xs-8'>";
 
        echo Html::img($current_plugin->getIcon(),"class='img img-thumbnail pull-left' style='border-radius:5px;width:80px;height:80px;margin-right:10px;'");
@@ -32,15 +30,15 @@ foreach($all_plugin as $current_plugin){
         echo "<h4 class='list-group-item-heading'>";
 
             if($current_plugin->isActive()){
-              echo "<a id='".$current_plugin->root_dir."' href='".config('horizontcms.backend_prefix')."/plugin/run/".$current_plugin->getSlug()."'>".$current_plugin->getName()."</a>";
+              echo "<a class='color-primary' id='".$current_plugin->root_dir."' href='".config('horizontcms.backend_prefix')."/plugin/run/".$current_plugin->getSlug()."'>".$current_plugin->getName()."</a>";
             }else{
-              echo "<a id='".$current_plugin->root_dir."' style='color:white;'>".$current_plugin->getName()."</a>";
+              echo "<a class='color-primary' id='".$current_plugin->root_dir."' >".$current_plugin->getName()."</a>";
             }
 
 
-         echo  " <small>version: ".$current_plugin->getInfo('version')." | author: <a href='".$current_plugin->getInfo('author_url')."'>".$current_plugin->getInfo('author')."</a></small></h4>
+         echo  " <small class='text-muted'>version: ".$current_plugin->getInfo('version')." | author: <a href='".$current_plugin->getInfo('author_url')."'>".$current_plugin->getInfo('author')."</a></small></h4>
 
-            <p class='list-group-item-text' style='margin-bottom:8px;margin-right:70px;'>".$current_plugin->getInfo('description')."</p>";
+            <p class='list-group-item-text text-white' style='margin-bottom:8px;margin-right:70px;'>".$current_plugin->getInfo('description')."</p>";
 
         echo "</div>";
 
@@ -61,7 +59,7 @@ foreach($all_plugin as $current_plugin){
 
          echo "</div>";
 
-
+      echo '</div>';
 
       echo "</div>";
 
@@ -87,9 +85,9 @@ foreach($all_plugin as $current_plugin){
 <div class='modal upload_plugin' id='create_file' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
   <div class='modal-dialog'>
     <div class='modal-content'>
-      <div class='modal-header modal-header-primary'>
-        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-        <h4 class='modal-title'>New file</h4>
+      <div class='modal-header modal-header-primary bg-primary'>
+        <h4 class='modal-title text-white'>New file</h4>
+        <button type='button' class='close  text-white' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
       </div>
       <div class='modal-body'>
 

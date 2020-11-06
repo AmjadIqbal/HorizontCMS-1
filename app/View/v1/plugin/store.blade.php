@@ -6,7 +6,6 @@
 
 <h1>Online Store</h1>
 <hr>
-<br>
 
 <div class="row">
 
@@ -22,8 +21,8 @@ if(!$repo_status){
 
 	  <?php $local_plugin = new \App\Model\Plugin($o_plugin->dir) ?>
 
-	  <div class="col-sm-6 col-md-3">
-	    <div class="thumbnail">
+	  <div class="col-sm-6 col-md-3 mb-3">
+	    <div class="thumbnail  bg-dark p-2 text-white">
 	      <img src="{{ $o_plugin->icon }}" style='width:100%;height:150px;object-fit:cover;' alt="...">
 	      <div class="caption">
 	        <h3 style='height:50px;'>{{ $o_plugin->info->name }}</h3>

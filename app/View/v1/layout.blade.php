@@ -35,18 +35,19 @@
 
 
 <footer id='footer' style='bottom:0;position:relative;'>
-		<br>
-        <div class='container main-container'>
-          <div class='col-md-6'>
-            <p class='text-muted credit' >
-	          {{ Config::get('app.name') }} &copy 2015 - {{ date('Y') }} <a href='http://www.twitter.com/timottarjani'>Timot Tarjani</a> 
-	          &nbsp&nbsp<a href='https://github.com/ttimot24/HorizontCMS'><i style='font-size: 18px;' class="fa fa-github" aria-hidden="true"></i></a>
-			</p>
-		   </div>
-		   <div class='col-md-6 text-right'>
-		   		Version: {{Config::get('horizontcms.version')}}
-		   </div>
-		</div>	
+	<div class='container'>
+		<div class="row py-5 px-3">
+			<div class='col-md-6'>
+				<p class='text-muted credit mb-0'>
+				{{ Config::get('app.name') }} &copy 2015 - {{ date('Y') }} <a href='http://www.twitter.com/timottarjani'>Timot Tarjani</a> 
+				&nbsp&nbsp<a href='https://github.com/ttimot24/HorizontCMS'><i style='font-size: 18px;' class="fa fa-github" aria-hidden="true"></i></a>
+				</p>
+			</div>
+			<div class='col-md-6 text-right'>
+				Version: {{Config::get('horizontcms.version')}}
+			</div>
+		</div>
+	</div>	
 </footer>
 
 <script>

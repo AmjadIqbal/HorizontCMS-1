@@ -5,12 +5,12 @@
 
 <h2>{{trans('user.registered_users')}} <small class='pull-right' style='margin-top:1.5%;'>{{trans('user.all')}}: {{$number_of_users}} | {{trans('user.active')}}: {{$active_users}} | {{trans('user.inactive')}}: {{$number_of_users-$active_users}}</small></h2>
 
-<br>
+
 <div class='container col-md-12'><a href="{{admin_link('user-create')}}" class='btn btn-warning' style='margin-bottom:20px;'>{{trans('user.new_user_button')}}</a></div>
 
 <table class='table table-hover'>
     <thead>
-      <tr>
+      <tr class="bg-dark text-white">
       	<th>{{trans('user.th_id')}}</th>
       	<th>{{trans('user.th_image')}}</th>
         <th>{{trans('user.th_name')}}</th>
@@ -38,7 +38,7 @@ echo "<td>".$each->username."</td>";
 echo "<td>".$each->email."</td>";
 
         echo "<td> 
-                <span class='label ".( ($each->isAdmin())? "label-danger" : "label-default" ) ."' style='font-size:13px; display:block;'>".$each->role->name ."</span>
+                <span class='badge ".( ($each->isAdmin())? "badge-danger" : "badge-dark" ) ."' style='font-size:13px; display:block;'>".$each->role->name ."</span>
              </td>";
         echo "<td style='text-align:center;'><b>"; 
 

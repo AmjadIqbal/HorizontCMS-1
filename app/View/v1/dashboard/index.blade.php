@@ -1,28 +1,26 @@
 @extends('layout')
 
 @section('content')
-<div class='container main-container' id='dashboard' style='margin-bottom: -35px;'> 
+<div class='container main-container' id='dashboard'> 
 
     <div class='row'>
       <div class='col-xs-12 col-sm-12 col-md-4'>
 
-     <center></br></br><h3>{{ $domain }}</h3>
-      <p class='text-muted'>{{ trans('dashboard.server_ip')." ".$server_ip }}</p>
-     <p class='text-muted'>{{ trans('dashboard.client_ip')." ".$client_ip }}</p></center>
-
-    <hr>
-    <div class='col-md-10 col-md-offset-1'><center>
-    <h4>{{ trans('dashboard.disk_usage') }}</h4>
-    <div class="progress">
-
-      <div class="progress-bar progress-bar-primary" style="width: {{ 100-$disk_space }}%">
-      {{ number_format(100-$disk_space,2) }}%
-        <span class="sr-only">35% Complete (success)</span>
-      </div>
-
-    </div></center>
-    </div>
-
+          <h3 class="text-center">{{ $domain }}</h3>
+          <p class='text-muted text-center'>{{ trans('dashboard.server_ip')." ".$server_ip }}</p>
+          <p class='text-muted text-center'>{{ trans('dashboard.client_ip')." ".$client_ip }}</p>
+    
+          <hr>
+      
+          <div class='col-md-10 col-md-offset-1 mx-auto'>
+              <h4 class="text-center">{{ trans('dashboard.disk_usage') }}</h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" style="width: {{ 100-$disk_space }}%">
+                {{ number_format(100-$disk_space,2) }}%
+                  <span class="sr-only">35% Complete (success)</span>
+                </div>
+              </div>
+          </div>
 
      </div>
 
@@ -45,15 +43,24 @@
         <form class='form-inline' action="{{admin_link('search-index')}}" method='POST'>
             {{ csrf_field() }}
           <div class='form-group'>
-            <div class='input-group'>
+          <div class="input-group">
             <input type='text' pattern=".{3,}" title="Minimum 3 characters" class='form-control' name='search' id='exampleInputAmount' style='min-width:250px;'  placeholder="{{ trans('dashboard.search_bar') }}" required>
-               <div class='input-group-addon'>
-                <button type='submit' class='btn btn-link btn-sm' style='padding:0px;'>
-                <span class='glyphicon glyphicon-search' aria-hidden='true' ></span>
+
+            <div class="input-group-prepend">
+              <button type='submit' class='btn btn-link btn-sm border-0' style='padding:0px;'>
+                  <span class='fa fa-search text-white' aria-hidden='true' ></span>
                 </button>
+            </div>
+          </div>
+            <!-- <div class='input-group'>
+                <input type='text' pattern=".{3,}" title="Minimum 3 characters" class='form-control' name='search' id='exampleInputAmount' style='min-width:250px;'  placeholder="{{ trans('dashboard.search_bar') }}" required>
+               <div class='input-group-addon'>
+                  <button type='submit' class='btn btn-link btn-sm' style='padding:0px;'>
+                  <span class='glyphicon glyphicon-search' aria-hidden='true' ></span>
+                  </button>
                 </div>
        
-            </div>
+            </div> -->
           </div>
         </form>
         @endif
@@ -72,7 +79,7 @@
          </div>
     </div>
 
-    <center><h1>{{ trans('dashboard.welcome_message') }}</h1></center>
+    <center><h1 class="mt-5">{{ trans('dashboard.welcome_message') }}</h1></center>
 
 	</br>
     <div class='container col-md-12'>
@@ -80,22 +87,22 @@
         
         <div class='col-sm-4'>
           <div class='panel panel-primary'>
-            <div class='panel-heading'>
-              <h3 class='panel-title'><b>{{ trans('dashboard.posted_news_count') }}</b><div class='pull-right'><i class='fa fa-newspaper-o'></i></div></h3>
+            <div class='panel-heading  bg-primary text-white'>
+              <h5 class='panel-title mb-0 px-3 py-2'><b>{{ trans('dashboard.posted_news_count') }}</b><div class='pull-right'><i class='fa fa-newspaper-o'></i></div></h5>
             </div>
-            <div class='panel-body'><center><font size='4'>
+            <div class='panel-body bg-dark text-center text-white p-3'><font size='4'>
             {{ $blogposts }}
-           </font></center></div>
+           </font></div>
           </div>
         </div>
 
 
         <div class='col-sm-4'>
           <div class='panel panel-primary'>
-            <div class='panel-heading'>
-              <h3 class='panel-title'><b>{{ trans('dashboard.registered_users_count') }}</b><div class='pull-right'><i class='fa fa-users'></i></div></h3>
+            <div class='panel-heading bg-primary text-white'>
+              <h5 class='panel-title mb-0  px-3 py-2'><b>{{ trans('dashboard.registered_users_count') }}</b><div class='pull-right'><i class='fa fa-users'></i></div></h5>
             </div>
-              <div class='panel-body'><center><font size='4'>
+              <div class='panel-body bg-dark text-white p-3'><center><font size='4'>
                {{ $users }}
            </font></center></div>
           </div>
@@ -103,12 +110,15 @@
 
         <div class='col-sm-4'>
           <div class='panel panel-primary'>
-            <div class='panel-heading' >
-              <h3 class='panel-title'><b>{{ trans('dashboard.visits_count') }}</b><div class='pull-right'><i class='fa fa-binoculars'></i></div></h3>
+            <div class='panel-heading  bg-primary text-white'>
+              <h5 class='panel-title mb-0 px-3 py-2'>
+                <b>{{ trans('dashboard.visits_count') }}</b>
+                <div class='pull-right'><i class='fa fa-binoculars'></i></div>
+              </h5>
             </div>
-            <div class='panel-body'><center><font size='4'>
+            <div class='panel-body bg-dark text-center text-white p-3'><font size='4'>
              {{ $visits }}
-           </font></center></div>
+           </font></div>
           </div>
         </div>
 

@@ -12,8 +12,7 @@
 <hr/>		
 
 	<h2>Step 1: Language</h2>
-	</br>
-	</br>
+	
 		<form action="{{ url('admin/install/step2') }}" role="form" method="POST">
 				{{ csrf_field() }}
 			
@@ -29,8 +28,7 @@
 			<a href='admin/install' class='btn btn-default btn-md'><span class='glyphicon glyphicon-menu-left' aria-hidden='true'></span> Previous</a>
 			<button type='submit' class='btn btn-primary btn-md'>&nbsp&nbspNext&nbsp&nbsp&nbsp&nbsp<span class='glyphicon glyphicon-menu-right' aria-hidden='true'></span>&nbsp&nbsp</button>
 		</form>
-			</br>
-			</br>
+		
 
 	</div>
 </div>

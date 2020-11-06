@@ -11,10 +11,8 @@
 <div class='col-md-4'>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading">
-      <h4>
-        <input type='text' class='form-control' name='group_name' required />
-      </h4> 
+  <div class="panel-heading bg-primary p-3">
+      <h4  class="mb-0"><input type='text' name='group_name' style='color:black;width:100%;' required></h4> 
   </div>
 
   <!-- List group -->
@@ -25,12 +23,12 @@
 
         <?php $perm_name = str_replace("Admin area","<b style='color:red;'>Admin area</b>",$perm_name) ?>
 
-        <li class='list-group-item'>{!!$perm_name!!}<input type='checkbox' class='pull-right' name='{{$key}}' value='1'></li>
+        <li class='list-group-item bg-dark text-white'>{!!$perm_name!!}<input type='checkbox' class='pull-right' name='{{$key}}' value='1'></li>
 
     @endforeach
 
 
-    <li class='list-group-item'><button type='submit' class='btn btn-warning btn-block'>Add user group</button></li>
+    <li class='list-group-item bg-dark'><button type='submit' class='btn btn-warning btn-block'>Add user group</button></li>
 
 
   </ul>
